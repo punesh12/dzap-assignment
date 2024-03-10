@@ -1,16 +1,21 @@
 
-import Navbar from './navbar/Navbar'
+import React from 'react'
 import './App.css'
+import Navbar from './navbar/Navbar'
+import Staking from './staking/Staking'
 
 function App() {
 
   return (
-    <div className="App">
-    <Navbar />
-    <div style={{ marginTop: "10%" }}>
-      <h1>web3-react tutorial</h1>
-    </div>
-  </div>
+    <React.Fragment>
+
+      <div className="App">
+        <Navbar />
+        <div style={{ marginTop: "10%" }}>
+          <Staking />
+        </div>
+      </div>
+    </React.Fragment>
   )
 }
 

@@ -28,5 +28,5 @@ export const testNetworkRPC = {
   rinkeby: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   georli: "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   kovan: "https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-  polygon: "https://rpc-mumbai.matic.today"
+  polygon:"https://rpc-mumbai.maticvigil.com"
 };

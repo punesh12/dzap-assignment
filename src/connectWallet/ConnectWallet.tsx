@@ -2,8 +2,8 @@ import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from "react";
 import CustomModal from "../customModal/customModal";
 import { formatAddress } from "../helpers";
-import { connectorsByName, Metamask } from "./connectors";
-import { AddressCont, ConnectWalletCont, StyledButton } from "./style";
+import { Metamask, connectorsByName } from "./connectors";
+import { ButtonWrapper, ConnectWalletCont, OutlineButton, StyledButton } from "./style";
 
 const ConnectWallet = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -22,7 +22,9 @@ const ConnectWallet = () => {
       if (walletConnectStatus === "true")
         Metamask.isAuthorized().then((isAuthorized: boolean) => {
           if (isAuthorized) {
-            activate(Metamask, undefined, true).catch(() => {});
+            activate(Metamask, undefined, true).catch(() => { });
+
+
           } else {
             deactivate();
           }
@@ -51,28 +53,33 @@ const ConnectWallet = () => {
 
   return (
     <ConnectWalletCont>
-      {active ? (
-        <AddressCont onClick={() => setShowDisconnectWallet(true)}>
-          {formatAddress(account)}
-        </AddressCont>
-      ) : (
-        <StyledButton onClick={() => setShowWalletOptions(true)}>
-          Connect wallet
-        </StyledButton>
-      )}
+      <ButtonWrapper>
+        {active ? (
+          <OutlineButton onClick={() => setShowDisconnectWallet(true)}>
+            {formatAddress(account)}
+          </OutlineButton>
+        ) : (
+          <StyledButton onClick={() => setShowWalletOptions(true)}>
+            Connect wallet
+          </StyledButton>
+        )}
+      </ButtonWrapper>
 
       <CustomModal
         show={showWalletOptions}
         toggleModal={() => setShowWalletOptions(false)}
       >
-        {connectorsByName.map((connector: any, key: number) => {
-          const clickCallback = () => handleWalletConnect(connector);
-          return (
-            <StyledButton key={key} onClick={() => clickCallback()}>
-              {connector.name}
-            </StyledButton>
-          );
-        })}
+        <ButtonWrapper>
+
+          {connectorsByName.map((connector: any, key: number) => {
+            const clickCallback = () => handleWalletConnect(connector);
+            return (
+              <StyledButton key={key} onClick={() => clickCallback()}>
+                {connector.name}
+              </StyledButton>
+            );
+          })}
+        </ButtonWrapper>
       </CustomModal>
 
       <CustomModal
