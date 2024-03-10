@@ -9,6 +9,7 @@ export const NavbarContainer = styled.div`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(8.4px);
   -webkit-backdrop-filter: blur(8.4px);
+  z-index: 999;
 `;
 
 export const IconImg = styled.img`

@@ -13,18 +13,25 @@ const buttonStyles = css<any>`
   color: white;
   border: none;
   outline: none;
-  margin: 10px 20px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.3s;
-  z-index: 10;
+  z-index: 1;
   :hover,
   :focus {
     box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.15);
   }
+
+  &:disabled{
+    opacity: 0.5;
+    pointer-events: none;
+
+  }
+
+
 `;
 
 export const StyledButton = styled.button<any>`
@@ -38,7 +45,7 @@ export const ConnectWalletCont = styled.div`
   align-items: center;
 `;
 
-export const AddressCont = styled.button`
+export const OutlineButton = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,5 +60,20 @@ export const AddressCont = styled.button`
   border: 2px solid #af40ff;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1;
+
+  &:disabled{
+    opacity: 0.5;
+    pointer-events: none;
+  }
 `;
+
+
+export const ButtonWrapper = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-right:1rem;
+gap:1rem;
+`
