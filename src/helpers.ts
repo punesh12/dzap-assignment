@@ -9,7 +9,7 @@ export const formatAddress = (address: any) => {
   }
 };
 
-export const formatEther = (amount) => {
+export const formatEther = (amount:any) => {
   if (!amount) return ""
   return parseFloat(ethers.utils.formatEther(amount)).toFixed(5);
 };

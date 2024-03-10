@@ -3,8 +3,11 @@
         "bignumber",
         "dzap",
         "ethersproject",
+        "nocheck",
+        "proxiable",
         "qrcode",
         "unstake",
+        "Unstaked",
         "walletconnect",
         "walletlink"
     ]
